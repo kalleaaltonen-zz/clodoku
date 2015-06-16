@@ -47,12 +47,12 @@
 
 
 (defn get-possible [b x y]
-  (let [affected-cells (set (get-affected-cells b x y))]
+  (let [affected-cells (get-affected-cells b x y)]
     (if ((comp not number?) (b [x y]))
       (set/difference
        (set (range 1 10))
        (set
-        (vals (filter (fn [[k v]] (and (number? v) (contains? affected-cells k))) b)))))))
+        (filter number? (map b affected-cells)))))))
 
 (defn make-board [s]
   (let [b (parse-board s)

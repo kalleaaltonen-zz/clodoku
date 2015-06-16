@@ -31,52 +31,26 @@
 
 (expect #{3 5 7 8 9} (test-board [0 0]))
 
-(expect true (solve test-board))
+(def test-board-hard2 (make-board (str/join '(
+     "... ... 68."
+     "... .73 ..9"
+     "3.9 ... .45"
+     "49. ... ..."
+     "8.3 .5. 9.2"
+     "... ... .36"
+     "96. ... 3.8"
+     "7.. 68. ..."
+     ".28 ... ..."))))
 
-;; (def test-board-simple (make-board (str/join '(
-;;      "1.. 57. .38"
-;;      "7.. ..8 4.."
-;;      ".83 .1. 5.."
+(expect (str/join '(
+"172549683\n"
+"645873219\n"
+"389261745\n"
+"496327851\n"
+"813456972\n"
+"257198436\n"
+"964715328\n"
+"731682594\n"
+"528934167\n"
+)), (pb (solve test-board-hard2)))
 
-;;      ".1. 8.3 ..2"
-;;      "8.7 ... 6.4"
-;;      "5.. 7.6 .8."
-
-;;      "..8 .9. 72."
-;;      "..5 3.. ..1"
-;;      "97. .85 ..6"))))
-
-;; test-board-simple
-
-;; (expect (* 9 9) (count (b-assoc test-board-simple [8 7] 4)))
-;; ;(expect true (not (nil? (brute-solve test-board-simple))))
-
-;; ;; (expect [
-;; ;;  [1 9 6 5 7 0 2 3 8]
-;; ;;  [7 5 2 6 3 8 4 1 9]
-;; ;;  [4 8 3 9 1 2 5 6 7]
-;; ;;  [6 1 4 8 5 3 9 7 2]
-;; ;;  [8 3 7 1 2 9 6 5 4]
-;; ;;  [5 2 9 7 4 6 1 8 3]
-;; ;;  [3 6 8 4 9 1 7 2 5]
-;; ;;  [2 4 5 3 6 7 8 9 1]
-;; ;;  [9 7 1 2 8 5 3 4 6]] (solve-board test-board-simple))
-
-
-
-;; ; (expect nil (prune-sector test-board-full 5))
-
-(def test-board-hard (make-board (str/join '(
-     "1.. ..7 .9."
-     ".3. .2. ..8"
-     "..9 6.. 5.."
-
-     "..5 3.. 9.."
-     ".1. .8. ..2"
-     "6.. ..4 ..."
-
-     "3.. ... .1."
-     ".4. ... ..7"
-     "..7 ... 3.."))))
-
-(expect nil (solve test-board-hard))
