@@ -110,6 +110,6 @@
   (println )
   (let [solution (brute-solve board)]
     (println "============== SOLUTION ==================")
-    (print   (pb (brute-solve board)))
+    (print   (pb solution))
     (println "============= /SOLUTION ==================")
     solution))
